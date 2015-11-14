@@ -88,8 +88,4 @@ class GridPointSpec extends Specification {
 
     }
 
-    def "格子点のペアが作成できる"(){
-        given:
-        def sut = new GridPointPair(new GridPoint(1, 2), new GridPoint(1, 3))
-    }
 }
