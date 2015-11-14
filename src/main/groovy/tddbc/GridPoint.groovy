@@ -6,12 +6,18 @@ package tddbc
 class GridPoint {
 
     private x
+    private y
 
-    public GridPoint(def x) {
+    public GridPoint(def x, def y) {
         this.x = x
+        this.y = y
     }
 
     def getX() {
         x
+    }
+
+    def getY() {
+        y
     }
 }
