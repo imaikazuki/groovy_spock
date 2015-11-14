@@ -17,7 +17,7 @@ class GridPointSpec extends Specification {
         def sut = new GridPoint(x, 0)
 
         expect:
-        expect == sut.getX()
+        assert expect == sut.getX()
 
         where:
         x  | expect
@@ -39,4 +39,18 @@ class GridPointSpec extends Specification {
         3  | 3
         -1 | -1
     }
+
+    def "格子点が(X,Y)の文字列表記を生成できる"(notation, x, y) {
+        given:
+        def sut = new GridPoint(x, y)
+
+        expect:
+        assert notation.equals(sut.getNotation())
+
+        where:
+        notation   | x  | y
+        "(1,2)"    | 1  | 2
+        "(-1,-99)" | -1 | -99
+    }
+
 }

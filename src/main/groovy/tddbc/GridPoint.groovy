@@ -20,4 +20,8 @@ class GridPoint {
     def getY() {
         y
     }
+
+    def getNotation() {
+        "(${x},${y})".toString()
+    }
 }
