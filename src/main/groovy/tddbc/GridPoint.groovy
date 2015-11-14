@@ -25,8 +25,8 @@ class GridPoint {
         "(${x},${y})".toString()
     }
 
-    def hasSameCoordinatesWith(GridPoint gridPoint) {
-        x == gridPoint.x && y == gridPoint.y
+    def hasSameCoordinatesWith(GridPoint opponent) {
+        x == opponent.x && y == opponent.y
     }
 
     def isNeighborOf(GridPoint opponent) {
