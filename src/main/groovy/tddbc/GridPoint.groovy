@@ -24,4 +24,8 @@ class GridPoint {
     def getNotation() {
         "(${x},${y})".toString()
     }
+
+    def hasSameCoordinatesWith(GridPoint gridPoint) {
+        x == gridPoint.x && y == gridPoint.y
+    }
 }
