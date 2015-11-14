@@ -7,11 +7,6 @@ import spock.lang.Specification
  */
 class GridPointSpec extends Specification {
 
-    def 格子点が生成できること() {
-        given:
-        def sut = new GridPoint(0, 0)
-    }
-
     def 格子点がX座標を持つこと(int x, int expect) {
         given:
         def sut = new GridPoint(x, 0)
