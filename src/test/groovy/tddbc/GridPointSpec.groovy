@@ -49,36 +49,20 @@ class GridPointSpec extends Specification {
         "(-1,-99)" | -1 | -99
     }
 
-    def 格子点が同じ座標かどうかを判定できる() {
+    @Unroll
+    def "2つの格子点(#x,#y)と(#opponentX,#opponentY)が同じ座標か判定する"(result, x, y, opponentX, opponentY) {
         given:
-        def sut = new GridPoint(1, 2)
+        def sut = new GridPoint(x, y)
 
         expect:
-        assert sut.hasSameCoordinatesWith(new GridPoint(1, 2))
-    }
+        assert result == sut.hasSameCoordinatesWith(new GridPoint(opponentX, opponentY))
 
-    def 格子点のY座標が異なる場合に違う格子点であること() {
-        given:
-        def sut = new GridPoint(1, 2)
-
-        expect:
-        assert !sut.hasSameCoordinatesWith(new GridPoint(1, 3))
-    }
-
-    def 格子点のX座標が異なる場合に違う格子点であること() {
-        given:
-        def sut = new GridPoint(1, 2)
-
-        expect:
-        assert !sut.hasSameCoordinatesWith(new GridPoint(2, 2))
-    }
-
-    def 格子点のX座標とY座標が異なる場合に違う格子点であること() {
-        given:
-        def sut = new GridPoint(1, 2)
-
-        expect:
-        assert !sut.hasSameCoordinatesWith(new GridPoint(3, 4))
+        where:
+        result | x | y | opponentX | opponentY
+        true   | 1 | 2 | 1         | 2
+        false  | 1 | 2 | 1         | 3
+        false  | 1 | 2 | 2         | 2
+        false  | 1 | 2 | 3         | 4
     }
 
     @Unroll
